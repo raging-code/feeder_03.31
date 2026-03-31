@@ -1,0 +1,223 @@
+/* Custom styles for Feeder Control System */
+:root {
+    --primary-color: #4CAF50;
+    --danger-color: #f44336;
+    --warning-color: #ff9800;
+    --info-color: #2196F3;
+    --success-color: #4caf50;
+}
+
+/* Feeder Column Styles */
+.feeder-column {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: transform 0.2s;
+}
+
+.feeder-column:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.feeder-header {
+    background: var(--primary-color);
+    color: white;
+    padding: 12px;
+    text-align: center;
+}
+
+.feeder-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.feeder-header p {
+    margin: 5px 0 0;
+    font-size: 0.8rem;
+    opacity: 0.9;
+}
+
+/* Dispenser Box Styles */
+.dispenser-box {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    padding: 10px;
+    margin: 8px;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.dispenser-box.active {
+    background: #e8f5e9;
+    border-color: var(--success-color);
+}
+
+.dispenser-box .dispenser-number {
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.dispenser-box .dispenser-details {
+    font-size: 0.7rem;
+    color: #6c757d;
+    margin-top: 3px;
+}
+
+.dispenser-box .button-group {
+    margin-top: 8px;
+    display: flex;
+    gap: 5px;
+}
+
+.dispenser-box button {
+    flex: 1;
+    padding: 4px 8px;
+    font-size: 0.8rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.dispenser-box .feed-btn {
+    background: var(--success-color);
+    color: white;
+}
+
+.dispenser-box .feed-btn.active {
+    background: #2e7d32;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.dispenser-box .dont-feed-btn {
+    background: var(--danger-color);
+    color: white;
+}
+
+.dispenser-box .dont-feed-btn.active {
+    background: #c62828;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Status Badge Animations */
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.6; }
+    100% { opacity: 1; }
+}
+
+.status-running {
+    animation: pulse 1.5s infinite;
+    background-color: var(--warning-color) !important;
+}
+
+/* Control Buttons */
+.control-btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    transition: all 0.3s;
+}
+
+.control-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.control-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* System Info Cards */
+.info-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.info-card i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .feeder-column {
+        margin-bottom: 15px;
+    }
+    
+    .dispenser-box {
+        margin: 5px;
+        padding: 8px;
+    }
+    
+    .dispenser-box .button-group {
+        flex-direction: column;
+    }
+    
+    .control-btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Loading Spinner */
+.spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(0,0,0,0.1);
+    border-radius: 50%;
+    border-top-color: var(--primary-color);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Toast Notifications */
+.toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1050;
+}
+
+.toast {
+    min-width: 250px;
+    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.95);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #45a049;
+}
